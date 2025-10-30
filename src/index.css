@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@font-face {
+    font-family: outfit;
+    src: url('../src/assets/Outfit-Regular.ttf');
+}
+@theme{
+    --font-outfit : outfit, 'sans-serif';
+}
+
