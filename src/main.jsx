@@ -8,37 +8,36 @@ import Games from './components/Games.jsx'
 import Faviourite from './components/Faviourite.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import CardInfo from './components/CardInfo.jsx'
+import { Car } from 'lucide-react'
 
 
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Body />
-      },
-      {
-        path: 'games',
-        element: <Games />,
-        children: [{
-          path: ':name',
-          element: <CardInfo />
-        }]
-      },
-      {
-        path: 'faviourite',
-        element: <Faviourite />,
-        children: [{
-          path: ':name',
-          element: <CardInfo />
-        }]
-      }
-    ]
-  },
+  path: '/',
+  element: <App />,
+  children: [
+    { index: true, element: <Body /> },
+
+    {
+      path: 'games',
+      children: [
+        { index: true, element: <Games /> },
+        { path: ':name', element: <CardInfo /> }  // /games/name
+      ]
+    },
+
+    {
+      path: 'faviourite',
+      children: [
+        { index: true, element: <Faviourite /> },
+        { path: ':name', element: <CardInfo /> } // /faviourite/name
+      ]
+    },
+  ]
+}
+
 
 ])
 

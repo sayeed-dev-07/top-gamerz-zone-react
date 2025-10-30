@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 const API = import.meta.env.VITE_API;
 
 const Games = () => {
+
     const [favArr, setFavArr] = useOutletContext();
 
     const { data, isLoading, error } = useQuery({
@@ -29,9 +30,9 @@ const Games = () => {
             <div className="grid font-outfit grid-cols-[repeat(auto-fit,minmax(350px,1fr))] p-10 items-center justify-center gap-6">
             
             {data.map((game) => (
-                <Link key={game.id} to={`${game.slug}`}>
-                    <Card  game={game} favArr={favArr} setFavArr={setFavArr} />
-                </Link>
+                
+                    <Card key={game.id}  game={game} favArr={favArr} setFavArr={setFavArr} />
+
             ))}
         </div>
         </div>
