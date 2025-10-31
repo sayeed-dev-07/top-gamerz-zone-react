@@ -34,7 +34,7 @@ const Navbar = () => {
 
 
          {burgerOn && 
-         <div className='absolute min-h-[90vh] text-white bg-[black] w-screen py-[60%]'>
+         <div className='absolute min-h-[90vh] text-white bg-[#000000dc] w-screen py-[60%] z-100'>
                 <ul className='flex items-center flex-col justify-center h-full text-center '>
                     <li onClick={()=> setBurgerOn(false)} className='group py-2 text-2xl font-semibold'>
                     <Link to='/'>Home</Link>

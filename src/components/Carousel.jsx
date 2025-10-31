@@ -13,7 +13,7 @@ const Carousel = ({arr}) => {
     pauseOnHover: true
   };
   return (
-    <div className="slider-container">
+    <div className="slider-container z-10">
       <Slider {...settings}>
         {
             arr.map(elem=> (
