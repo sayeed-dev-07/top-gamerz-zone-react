@@ -45,7 +45,7 @@ const Games = () => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
           fetchNextPage();
-        }, 1000); // 👈 delay in ms (0.6s)
+        }, 800);
       }
     };
 

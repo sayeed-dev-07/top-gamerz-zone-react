@@ -33,7 +33,10 @@ const Card = ({ game, favArr, setFavArr }) => {
                     <img src={background_image} alt={name} className="rounded-tr-md rounded-tl-md" />
                 </div></Link>
             <div className="flex px-6 pb-6 flex-col items-start gap-y-3">
-                <p className="text-xl font-semibold">{name}</p>
+                <Link to={`${basePath}/${game.slug}`}
+                state={{ game }}>
+                    <p className="text-xl font-semibold hover:underline">{name}</p>
+                </Link>
                 <p>Rating: {rating}</p>
 
                 <button
