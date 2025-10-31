@@ -24,6 +24,7 @@ const Games = () => {
     isFetchingNextPage,
     isLoading,
     error,
+    isPending
   } = useInfiniteQuery({
     queryKey: ["games"],
     queryFn: fetchGames,
@@ -35,33 +36,33 @@ const Games = () => {
 
   // handle scroll
   React.useEffect(() => {
-  let timeout;
+    let timeout;
 
-  const onScroll = () => {
-    const bottomReached =
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
+    const onScroll = () => {
+      const bottomReached =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 300;
 
-    if (bottomReached && hasNextPage && !isFetchingNextPage) {
+      if (bottomReached && hasNextPage && !isFetchingNextPage) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          fetchNextPage();
+        }, 1000); // 👈 delay in ms (0.6s)
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => {
       clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        fetchNextPage();
-      }, 1000); // 👈 delay in ms (0.6s)
-    }
-  };
-
-  window.addEventListener("scroll", onScroll);
-  return () => {
-    clearTimeout(timeout);
-    window.removeEventListener("scroll", onScroll);
-  };
-}, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   if (isLoading) return <Loader />;
   if (error) return <p className="text-center">{error.message}</p>;
 
   return (
     <div className="px-10 py-10 font-outfit">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-6">
+      <div className="grid  grid-cols-[repeat(auto-fit,minmax(350px,1fr))] items-start gap-6">
         {data.pages.map((page) =>
           page.results.map((game) => (
             <Card
@@ -76,10 +77,9 @@ const Games = () => {
 
       {/* loading spinner when fetching more */}
       {isFetchingNextPage && (
-        <div className="text-center mt-4">
-          <Loader />
-        </div>
+          <p className="py-2 text-5xl">Loading more games....</p>
       )}
+
     </div>
   );
 };
