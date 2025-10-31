@@ -23,8 +23,7 @@ const Games = () => {
     hasNextPage,
     isFetchingNextPage,
     isLoading,
-    error,
-    isPending
+    error
   } = useInfiniteQuery({
     queryKey: ["games"],
     queryFn: fetchGames,
