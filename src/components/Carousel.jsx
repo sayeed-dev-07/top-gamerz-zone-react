@@ -18,7 +18,7 @@ const Carousel = ({arr}) => {
         {
             arr.map(elem=> (
                 <div className='w-full' key={elem.id} >
-                    <img className='w-full' src={elem.image} alt="" />
+                  <img src={elem.image} alt="" />
                 </div>
             ))
         }

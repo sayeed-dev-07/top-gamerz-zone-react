@@ -14,12 +14,12 @@ const Games = () => {
     const { data, isLoading, error } = useQuery({
         queryKey: ['games'],
         queryFn: async () => {
-            const res = await fetch(`https://api.rawg.io/api/games?key=${API}&page_size=20`);
+            const res = await fetch(`https://api.rawg.io/api/games?key=${API}&page_size=30`);
             if (!res.ok) throw new Error('Something went wrong');
             const result = await res.json();
             return result.results;
         },
-        staleTime: 1000 * 60 * 5,
+        staleTime: 1000 * 60 * 10,
     });
 
     if (isLoading) return <Loader/>;
