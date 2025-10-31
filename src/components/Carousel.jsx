@@ -17,8 +17,8 @@ const Carousel = ({arr}) => {
       <Slider {...settings}>
         {
             arr.map(elem=> (
-                <div key={elem.id} >
-                    <img src={elem.image} alt="" />
+                <div className='w-full' key={elem.id} >
+                    <img className='w-full' src={elem.image} alt="" />
                 </div>
             ))
         }
