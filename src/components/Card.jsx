@@ -32,7 +32,7 @@ const Card = ({ game, favArr, setFavArr }) => {
                 state={{ game }}><div>
                     <img src={background_image} alt={name} className="rounded-tr-md rounded-tl-md" />
                 </div></Link>
-            <div className="flex px-6 pb-6 flex-col items-start gap-y-3">
+            <div className="flex px-2  sm:px-6 pb-6 flex-col items-start gap-y-3">
                 <Link to={`${basePath}/${game.slug}`}
                 state={{ game }}>
                     <p className="text-xl font-semibold hover:underline">{name}</p>
@@ -41,7 +41,7 @@ const Card = ({ game, favArr, setFavArr }) => {
 
                 <button
                     onClick={handleClick}
-                    className="p-4 border text-xl cursor-pointer justify-center hover:text-white hover:bg-black rounded-md transition-all duration-150 flex items-start"
+                    className="sm:p-4 p-2 border text-base sm:text-xl cursor-pointer justify-center hover:text-white hover:bg-black rounded-md transition-all duration-150 flex items-start"
                 >
                     {isFav ? 'Remove from Faviourite' : 'Add to Faviourite'}
                 </button>

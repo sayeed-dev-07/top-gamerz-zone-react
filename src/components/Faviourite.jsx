@@ -17,7 +17,7 @@ const Faviourite = () => {
   }
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] p-10  justify-center gap-6 font-outfit items-start">
+    <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] px-2 py-5 sm:p-10  justify-center gap-6 font-outfit items-start">
       {favArr.map((game) => (
         <Card key={game.id} game={game} favArr={favArr} setFavArr={setFavArr} />
       ))}

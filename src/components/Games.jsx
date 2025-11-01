@@ -60,8 +60,8 @@ const Games = () => {
   if (error) return <p className="text-center">{error.message}</p>;
 
   return (
-    <div className="px-10 py-10 font-outfit">
-      <div className="grid  grid-cols-[repeat(auto-fit,minmax(350px,1fr))] items-start gap-6">
+    <div className="px-2 sm:px-10 py-10 font-outfit">
+      <div className="grid  grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] items-start gap-6">
         {data.pages.map((page) =>
           page.results.map((game) => (
             <Card
