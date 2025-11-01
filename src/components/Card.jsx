@@ -22,17 +22,17 @@ const Card = ({ game, favArr, setFavArr }) => {
 
             // add
             setFavArr((prev) => [...prev, game]);
-            toast.success(`${name} added to favourites 💖`);
+            toast.success(`${name} added to favourites ✔`);
         }
     }
 
     return (
-        <div className="flex flex-col gap-y-2 rounded-xl bg-[#171717]  text-white">
+        <div className="flex flex-col gap-y-2 rounded-xl group bg-[#171717] overflow-hidden text-white">
             <Link to={`${basePath}/${game.slug}`}
                 state={{ game }}>
-                    <div className="  tooltip" data-tip="Cick to get game info">
+                    <div className="  tooltip overflow-hidden" data-tip="Cick to get game info">
                         <div>
-                    <img src={background_image} alt={name} className="rounded-tr-md rounded-tl-md" />
+                    <img src={background_image} alt={name} className="rounded-tr-md rounded-tl-md group-hover:scale-110 duration-400 transition-all" />
                 </div>
                     </div>
                 </Link>
