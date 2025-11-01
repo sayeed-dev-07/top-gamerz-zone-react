@@ -27,7 +27,7 @@ const Card = ({ game, favArr, setFavArr }) => {
     }
 
     return (
-        <div className="flex flex-col gap-y-2 rounded-xl group bg-[#171717] overflow-hidden text-white">
+        <div className="flex flex-col gap-y-2 rounded-xl group bg-[#171717] overflow-hidden text-white card-appear">
             <Link to={`${basePath}/${game.slug}`}
                 state={{ game }}>
                     <div className="  tooltip overflow-hidden" data-tip="Cick to get game info">
