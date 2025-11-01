@@ -29,9 +29,13 @@ const Card = ({ game, favArr, setFavArr }) => {
     return (
         <div className="flex flex-col gap-y-2 rounded-xl bg-[#171717]  text-white">
             <Link to={`${basePath}/${game.slug}`}
-                state={{ game }}><div>
+                state={{ game }}>
+                    <div className="  tooltip" data-tip="Cick to get game info">
+                        <div>
                     <img src={background_image} alt={name} className="rounded-tr-md rounded-tl-md" />
-                </div></Link>
+                </div>
+                    </div>
+                </Link>
             <div className="flex px-2  sm:px-6 pb-6 flex-col items-start gap-y-3">
                 <Link to={`${basePath}/${game.slug}`}
                 state={{ game }}>

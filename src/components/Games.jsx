@@ -61,7 +61,7 @@ const Games = () => {
 
   return (
     <div className="px-2 sm:px-10 py-10 font-outfit">
-      <div className="grid  grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] items-start gap-6">
+      <div className="grid  grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] items-start gap-y-12 gap-x-10">
         {data.pages.map((page) =>
           page.results.map((game) => (
             <Card
